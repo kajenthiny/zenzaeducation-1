@@ -1,9 +1,9 @@
 import React from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 
-import Navbar from "./Pages/Navbar";
+import Navbar from "./pages/Navbar";
 import Footer from "./components/Footer";
-import Home from "./components/Home.jsx";
+import Home from "./components/home.jsx";
 import Australia from "./pages/Australia.jsx";
 import UK from "./pages/UK.jsx";
 import Canada from "./pages/Canada.jsx";
