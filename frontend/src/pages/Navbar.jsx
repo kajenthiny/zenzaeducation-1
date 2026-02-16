@@ -28,34 +28,34 @@ const Navbar = () => {
               Home
             </Link>
           </li>
-         <li>
+          <li>
             <Link to="/AboutUs" className="hover:text-blue-600 transition">
               About Us
             </Link>
           </li>
-          {/* Desktop Dropdown */}
           <li className="relative group cursor-pointer">
             <div className="flex items-center gap-2 hover:text-blue-600 transition">
               Study Abroad
               <FaChevronDown className="text-sm group-hover:rotate-180 transition" />
             </div>
 
-            <div className="absolute top-8 left-0 hidden group-hover:block">
+            {/* Add invisible hover area */}
+            <div className="absolute top-full left-0 pt-2 hidden group-hover:block">
               <div className="bg-white shadow-xl rounded-xl w-52 border border-gray-200 overflow-hidden">
 
-                <Link to="/uk" className="px-4 py-2 hover:bg-blue-50 hover:text-blue-700 flex gap-2">
+                <Link to="/uk" className="block px-4 py-2 hover:bg-blue-50 hover:text-blue-700">
                   🇬🇧 Study in UK
                 </Link>
 
-                <Link to="/canada" className="px-4 py-2 hover:bg-blue-50 hover:text-blue-700 flex gap-2">
+                <Link to="/canada" className="block px-4 py-2 hover:bg-blue-50 hover:text-blue-700">
                   🇨🇦 Study in Canada
                 </Link>
 
-                <Link to="/australia" className="px-4 py-2 hover:bg-blue-50 hover:text-blue-700 flex gap-2">
+                <Link to="/australia" className="block px-4 py-2 hover:bg-blue-50 hover:text-blue-700">
                   🇦🇺 Study in Australia
                 </Link>
 
-                <Link to="/france" className="px-4 py-2 hover:bg-blue-50 hover:text-blue-700 flex gap-2">
+                <Link to="/france" className="block px-4 py-2 hover:bg-blue-50 hover:text-blue-700">
                   🇫🇷 Study in France
                 </Link>
 
@@ -81,14 +81,18 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      <div className={`md:hidden bg-white border-t border-gray-200 shadow-lg transition-all duration-300 ${
-        menuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0 overflow-hidden"
-      }`}>
-        <div className="px-6 py-4 space-y-4 text-gray-700 font-medium">
+      <div className={`md:hidden bg-white border-t border-gray-200 shadow-lg  transition-all duration-300 ${menuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0 overflow-hidden"
+        }`}>
+        <div className="px-6 py-4 space-y-4 text-gray-700 font-medium grid grid-cols-1">
 
           <Link to="/" onClick={() => setMenuOpen(false)}>
+            Home
+          </Link>
+
+          <Link to="/AboutUs" onClick={() => setMenuOpen(false)}>
             About Us
           </Link>
+
 
           <div>
             <button
@@ -100,7 +104,7 @@ const Navbar = () => {
             </button>
 
             {dropdownOpen && (
-              <div className="mt-2 ml-4 space-y-2">
+              <div className="mt-2 ml-4 space-y-2 grid grid-cols-1">
 
                 <Link to="/uk" onClick={() => setMenuOpen(false)}>🇬🇧 Study in UK</Link>
                 <Link to="/canada" onClick={() => setMenuOpen(false)}>🇨🇦 Study in Canada</Link>

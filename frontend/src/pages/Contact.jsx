@@ -1,56 +1,41 @@
 import React from "react";
-import banner from "../assets/h.jpg";
+import { FaPhoneAlt, FaEnvelope, FaFacebook, FaMapMarkerAlt } from "react-icons/fa";   
+import Navbar from "../pages/Navbar";
+import Footer from "../components/Footer";
 
 const Contact = () => {
+
+  const contactDetails = [
+    { name: "Phone", icon: <FaPhoneAlt />, value: "0757960217" },
+    { name: "Email", icon: <FaEnvelope />, value: "zenzaindustries@gmail.com" },
+    { name: "Facebook", icon: <FaFacebook />, value: "https://www.facebook.com/zenzaedu" },
+    { name: "Location", icon: <FaMapMarkerAlt />, value: "98/2 saddanathar Road Nallur Jaffna" },
+  ];
+
   return (
-    <div className="w-full overflow-hidden">
+    <>
+        <Navbar/>
+    <div className="w-full bg-white-5 mt-10 sm:py-14">
 
-      {/* HEADER BANNER */}
-      <div
-        className="relative h-[220px] sm:h-[320px] md:h-[480px] lg:h-[520px]
-                   bg-cover bg-center"
-        style={{ backgroundImage: `url(${banner})` }}
-      >
-      <div className="absolute inset-0 bg-black/50
-                flex flex-col justify-center items-center
-                text-center
-                px-4 sm:px-5 md:px-16
-                pt-6 sm:pt-10 md:pt-15">
-
-  <h1 className="text-4xl sm:text-4xl md:text-5xl font-bold
-                 bg-gradient-to-r from-blue-400 via-white to-blue-600
-                 bg-clip-text text-transparent">
-    Contact Us
-  </h1>
-
-  <p className="mt-1 sm:mt-2 text-xs sm:text-sm md:text-base
-                bg-gradient-to-r from-white via-blue-200 to-blue-400
-                bg-clip-text text-transparent">
-    Home / Contact
-  </p>
-</div>
-
-      </div>
-
-      {/* CONTENT */}
       <div className="max-w-7xl mx-auto
                       px-4 sm:px-6 md:px-8
-                      py-10 sm:py-14
                       grid grid-cols-1 md:grid-cols-2
-                      gap-6 sm:gap-10 md:gap-25">
+                      gap-9">
 
         {/* LEFT FORM */}
-        <div className="border border-blue-100 rounded-2xl
-                        p-5 sm:p-7 md:p-8
-                        bg-gradient-to-br from-blue-50 via-blue-100 to-blue-50
-                        shadow-md hover:shadow-xl transition">
+        <div className="group border border-blue-100 rounded-2xl p-8
+                bg-gradient-to-br from-blue-100 via-blue-200 to-blue-100
+                shadow-md hover:shadow-2xl hover:-translate-y-1
+                transition-all duration-300
+                max-w-lg mx-h-1g">
 
-          <h2 className="text-2xl sm:text-3xl md:text-4xl
-                         font-semibold text-blue-800 mb-5 sm:mb-6">
+          <h2 className="text-xl sm:text-2xl md:text-3xl
+                 font-semibold text-black-800
+                 mb-5 text-center">
             Contact Us
           </h2>
 
-          <form className="space-y-4 sm:space-y-5">
+          <form className="space-y-6">
             {[
               "Full Name",
               "Email Address",
@@ -59,93 +44,138 @@ const Contact = () => {
               "Qualification",
             ].map((label, i) => (
               <div key={i} className="flex flex-col gap-1">
-                <label className="text-xs sm:text-sm font-medium text-blue-700">
+                <label className="text-sm font-medium text-bluck-700">
                   {label}
                 </label>
                 <input
                   type="text"
-                  className="w-full border border-blue-300 rounded-lg
-                             px-3 sm:px-4 py-2 sm:py-2.5
-                             bg-white text-blue-900
-                             focus:border-blue-600 focus:ring-4
-                             focus:ring-blue-300/40
-                             outline-none transition"
+                  className="w-full 
+             border border-gray-300
+             rounded-lg px-3 py-2
+             text-sm
+             bg-white text-gray-800
+             focus:border-blue-400
+             focus:ring-2 focus:ring-blue-200
+             outline-none transition"
                 />
+
               </div>
             ))}
 
-            <button
-              type="button"
-              className="w-full bg-gradient-to-r from-blue-600 to-blue-800
-                         text-white text-sm sm:text-base md:text-lg
-                         font-semibold
-                         py-2.5 sm:py-3.5
-                         rounded-lg shadow-lg
-                         hover:from-blue-700 hover:to-blue-900
-                         transition active:scale-95">
-              Register Now
-            </button>
+            <a
+  href="https://wa.me/94757960217?text=Hello!%20I%20want%20to%20register."
+  target="_blank"
+  rel="noopener noreferrer"
+  className="w-full
+             bg-[#021b88]
+             text-white text-sm font-semibold
+             py-2 rounded-lg shadow
+             hover:bg-[#02156b]
+             transition active:scale-95
+             mt-6
+             inline-block text-center"
+>
+  Register Now
+</a>
+
           </form>
         </div>
 
-     {/* RIGHT INFO */}
-<div className="flex flex-col
-                mt-8 md:mt-0
-                px-1 sm:px-0">
+        {/* RIGHT INFO */}
+        <div className="flex flex-col justify-center">
 
-  <h2 className="mt-2 sm:mt-4
-                 text-2xl sm:text-3xl md:text-4xl
-                 font-semibold text-blue-800
-                 mb-3 sm:mb-4">
-    Get Information
-  </h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl
+               font-semibold text-gray-800
+               mb-4
+               text-center
+               sm:text-left sm:pl-6
+               md:pl-12">
+            Get Information
+          </h2>
 
-  <p className="text-blue-700/80
-                text-sm sm:text-base
-                mb-5 sm:mb-6">
-    Got a question? Send us a message and we'll respond soon.
-  </p>
+          <p className="text-gray-600 text-sm sm:text-base
+              mb-8
+              text-center
+              sm:text-left sm:pl-6
+              md:pl-12">
+            Got a question? Send us a message and we'll respond soon.
+          </p>
 
-  {/* CONTACT DETAILS */}
-  <div className="grid grid-cols-1 sm:grid-cols-2
-                  gap-3 sm:gap-4
-                  mb-6">
+         <div className="grid grid-cols-2 gap-4 mb-6">
+  {contactDetails.map((item, i) => {
+    // Determine link based on contact type
+    let href = "#"; // default
 
-    {[
-      { icon: "📞", value: "0771234566" },
-      { icon: "✉️", value: "abc@gmail.com" },
-      { icon: "🌐", value: "www.abc.com" },
-      { icon: "📍", value: "Jaffna" },
-    ].map((item, i) => (
-      <div key={i}
-           className="flex items-center
-                      gap-2 sm:gap-3">
+    if (item.name === "Phone") {
+      // WhatsApp link
+      href = `https://wa.me/94${item.value.slice(1)}?text=Hello! I want to contact you.`;
+    } else if (item.name === "Email") {
+      href = `mailto:${item.value}`;
+    } else if (item.name === "Facebook") {
+      href = item.value;
+    } else if (item.name === "Address") {
+      // Google Maps link
+      href = `https://www.google.com/maps/search/${encodeURIComponent(item.value)}`;
+    }
 
-        <span className="text-lg sm:text-xl">
+    return (
+      <a
+        key={i}
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex flex-col items-center 
+                   bg-white 
+                   p-4 
+                   rounded-xl 
+                   shadow-sm 
+                   hover:shadow-md 
+                   transition duration-100"
+      >
+        {/* ICON */}
+        <div className="w-10 h-10 flex items-center justify-center
+                        bg-[#031d91] text-white text-lg
+                        rounded-full mb-2">
           {item.icon}
-        </span>
+        </div>
 
-        <p className="text-gray-800
-                      text-sm sm:text-base">
+        {/* NAME */}
+        <p className="text-gray-900 text-base font-semibold">
+          {item.name}
+        </p>
+
+        {/* VALUE */}
+        <p className="text-gray-400 text-sm text-center">
           {item.value}
         </p>
-      </div>
-    ))}
-  </div>
+      </a>
+    );
+  })}
+</div>
 
-  {/* MAP */}
+
+
+          {/* MAP */}
+<a
+  href="https://www.google.com/maps/search/?api=1&query=98/2%20Saddanathar%20Road%2C%20Nallur%2C%20Jaffna"
+  target="_blank"
+  rel="noopener noreferrer"
+>
   <iframe
     title="map"
-    src="https://maps.google.com/maps?q=Jaffna&t=&z=13&ie=UTF8&iwloc=&output=embed"
-    className="w-full
-               h-44 sm:h-56 md:h-64
-               rounded-xl shadow"
+    src="https://maps.google.com/maps?q=98/2%20Saddanathar%20Road%2C%20Nallur%2C%20Jaffna&z=17&output=embed"
+    className="w-full h-48 sm:h-56 md:h-64 rounded-xl shadow-md"
     loading="lazy"
   ></iframe>
-</div>
+</a>
+
+
+        </div>
 
       </div>
     </div>
+      <Footer/>
+      </>
   );
 };
 

@@ -15,6 +15,8 @@ import u2c from "../assets/uk2c.jpg";
 import u3a from "../assets/uk3a.jpg";
 import u3b from "../assets/uk3b.jpg";
 import u3c from "../assets/uk3c.jpg";
+import Navbar from "./Navbar";
+import Footer from "../components/Footer";
 
 /* animation */
 const imageVariant = {
@@ -59,34 +61,40 @@ const UK = () => {
   ];
 
   return (
+  
     <div className="w-full bg-white font-poppins">
-      {/* HERO */}
+        <Navbar/>
+  {/* HERO SECTION */}
       <section className="w-full relative overflow-hidden">
         <div className="absolute inset-0">
-          <img
-            src={heroImg}
-            alt="UK"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-indigo-950/90 via-indigo-950/60 to-transparent"></div>
+        <img
+  src={heroImg}
+  alt="UK Flag"
+  className="w-full h-full object-cover object-[20%_center]"
+/>
+
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-950/90 via-blue-950/60 to-transparent"></div>
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 py-20 flex items-center min-h-[420px]">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 w-full">
-            <div className="text-white text-center lg:text-left">
-              <h2 className="text-4xl md:text-5xl font-extrabold leading-tight">
-                Study in <span className="uppercase">UNITED KINGDOM</span>
-              </h2>
+        {/* 🔥 ONLY CHANGE HERE */}
+        <div className="relative max-w-7xl mx-auto px-5 py-24 flex items-center min-h-[450px]">
+          <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-10 w-full">
 
+            <div className="text-white lg:text-left">
+
+              <h2 className="text-4xl md:text-5xl font-extrabold leading-tight font-serif tracking-tight">Study in <span className="uppercase">UK</span></h2>  
               <p className="mt-4 text-white/80 max-w-md text-sm md:text-base leading-relaxed">
-                Access world-class universities, globally respected degrees,
-                modern research facilities, and strong career pathways in the UK.
+                Unlock your future with free expert guidance <br></br>to study in the UK
+                – your path to success starts here!
               </p>
 
-              <button className="mt-8 bg-white/20 hover:bg-white/30 text-white px-6 py-3 rounded-md font-semibold shadow">
-                Apply for September Intake
+              <button className="mt-8 bg-white/20 hover:bg-white/30 text-white px-6 py-3 rounded-md text-sm font-semibold shadow">
+                Apply for January 2026
               </button>
             </div>
+
+            <div className="hidden lg:block"></div>
+
           </div>
         </div>
       </section>
@@ -149,6 +157,7 @@ const UK = () => {
           </div>
         ))}
       </section>
+      <Footer />
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-
+import Navbar from "../pages/Navbar";
+import Footer from "../components/Footer";
 import heroImg from "../assets/canada1.jpg";
 
 /* CANADA IMAGES */
@@ -98,92 +99,95 @@ const Canada = () => {
   ];
 
   return (
-    <div className="w-full bg-white font-poppins">
-      {/* HERO */}
-      <section className="w-full relative overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src={heroImg}
-            alt="Canada"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-red-900/90 via-red-900/60 to-transparent"></div>
-        </div>
-
-        <div className="relative max-w-7xl mx-auto px-4 py-20 flex items-center min-h-[420px]">
-          <div className="text-white max-w-xl text-center lg:text-left">
-            <h2 className="text-4xl md:text-5xl font-extrabold leading-tight">
-              Study in <span className="uppercase">CANADA</span>
-            </h2>
-
-            <p className="mt-4 text-white/85 text-sm md:text-base leading-relaxed">
-              Canada offers world-class education, strong immigration pathways,
-              safe cities, and excellent career opportunities for graduates.
-            </p>
-
-            <button className="mt-8 bg-white/20 hover:bg-white/30 px-6 py-3 rounded-md font-semibold shadow">
-              Apply for January Intake
-            </button>
+    <>
+      <Navbar />
+      <div className="w-full bg-white font-poppins">
+        {/* HERO */}
+        <section className="w-full relative overflow-hidden">
+          <div className="absolute inset-0">
+            <img
+              src={heroImg}
+              alt="Canada"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-red-900/90 via-red-900/60 to-transparent"></div>
           </div>
-        </div>
-      </section>
 
-      {/* UNIVERSITY SECTIONS */}
-      <section className="max-w-7xl mx-auto px-4 py-16 space-y-20">
-        {cards.map((item) => (
-          <div
-            key={item.id}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center"
-          >
-            {/* IMAGES */}
-            <motion.div
-              className={item.reverse ? "lg:order-2" : ""}
-              variants={imageVariant}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-            >
-              <div className="bg-white rounded-xl shadow-md p-3">
-                <img
-                  src={item.big}
-                  className="w-full h-56 object-cover rounded-lg transition duration-500 hover:scale-105"
-                />
+          <div className="relative max-w-7xl mx-auto px-4 py-20 flex items-center min-h-[420px]">
+            <div className="text-white max-w-xl text-center lg:text-left">
+              <h2 className="text-4xl md:text-5xl font-extrabold leading-tight">
+                Study in <span className="uppercase">CANADA</span>
+              </h2>
 
-                <div className="grid grid-cols-2 gap-3 mt-4">
-                  <img
-                    src={item.small1}
-                    className="w-full h-32 object-cover rounded-lg transition duration-500 hover:scale-110"
-                  />
-                  <img
-                    src={item.small2}
-                    className="w-full h-32 object-cover rounded-lg transition duration-500 hover:scale-110"
-                  />
-                </div>
-              </div>
-            </motion.div>
-
-            {/* TEXT */}
-            <div
-              className={`text-center ${
-                item.reverse ? "lg:order-1" : ""
-              } mt-6 lg:mt-0`}
-            >
-              <h3 className="text-xl font-extrabold tracking-wide text-gray-900 mb-3">
-                {item.title}
-              </h3>
-
-              <p className="text-gray-600 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
-                {item.desc}
+              <p className="mt-4 text-white/85 text-sm md:text-base leading-relaxed">
+                Canada offers world-class education, strong immigration pathways,
+                safe cities, and excellent career opportunities for graduates.
               </p>
 
-              <button className="mt-6 bg-indigo-900 hover:bg-indigo-800 text-white px-10 py-3 rounded-md font-semibold shadow">
-                Apply
+              <button className="mt-8 bg-white/20 hover:bg-white/30 px-6 py-3 rounded-md font-semibold shadow">
+                Apply for January Intake
               </button>
             </div>
           </div>
-        ))}
-      </section>
-    </div>
+        </section>
+
+        {/* UNIVERSITY SECTIONS */}
+        <section className="max-w-7xl mx-auto px-4 py-16 space-y-20">
+          {cards.map((item) => (
+            <div
+              key={item.id}
+              className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center"
+            >
+              {/* IMAGES */}
+              <motion.div
+                className={item.reverse ? "lg:order-2" : ""}
+                variants={imageVariant}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+              >
+                <div className="bg-white rounded-xl shadow-md p-3">
+                  <img
+                    src={item.big}
+                    className="w-full h-56 object-cover rounded-lg transition duration-500 hover:scale-105"
+                  />
+
+                  <div className="grid grid-cols-2 gap-3 mt-4">
+                    <img
+                      src={item.small1}
+                      className="w-full h-32 object-cover rounded-lg transition duration-500 hover:scale-110"
+                    />
+                    <img
+                      src={item.small2}
+                      className="w-full h-32 object-cover rounded-lg transition duration-500 hover:scale-110"
+                    />
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* TEXT */}
+              <div
+                className={`text-center ${item.reverse ? "lg:order-1" : ""
+                  } mt-6 lg:mt-0`}
+              >
+                <h3 className="text-xl font-extrabold tracking-wide text-gray-900 mb-3">
+                  {item.title}
+                </h3>
+
+                <p className="text-gray-600 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
+                  {item.desc}
+                </p>
+
+                <button className="mt-6 bg-indigo-900 hover:bg-indigo-800 text-white px-10 py-3 rounded-md font-semibold shadow">
+                  Apply
+                </button>
+              </div>
+            </div>
+          ))}
+        </section>
+      </div>
+      <Footer />
+    </>
   );
 };
 

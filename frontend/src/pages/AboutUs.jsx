@@ -1,46 +1,71 @@
-import saaaImg from "../assets/saaa.jpg";
+import saaaImg from "../assets/Aboutimage1.jpg";
 import tttImg from "../assets/ttt.jpg";
-import vmImg from "../assets/vission mission.jpg";
-import global from "../assets/global.png"
-import v from "../assets/v.jpg"
-// New imports for the 4 images
+// import vmImg from "../assets/vision&mission.jpg";
+import global from "../assets/global.png";
+import v from "../assets/ttt.jpg";
+import sasa from "../assets/sasa.jpg";
+// Feature images
 import featureImg1 from "../assets/Financial.jpg";
 import featureImg2 from "../assets/Visa Application (1).png";
 import featureImg3 from "../assets/Visa Application (2).jpg";
 import featureImg4 from "../assets/Visa Application (3).jpg";
 
+import Navbar from "../pages/Navbar";
+import Footer from "../components/Footer";
 export default function AboutUs() {
   return (
     <div className="w-full overflow-hidden bg-[#f5f5f5]">
-
+      <Navbar />
       {/* ================= HERO ================= */}
-      <div className="relative h-[60vh]">
-        <img src={saaaImg} className="w-full h-full object-cover" alt="About" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent flex items-center justify-center">
-          <div className="text-center px-4">
-            <h1 className="text-white text-4xl md:text-5xl font-bold mb-4">
-              About Us
-            </h1>
-            <p className="text-gray-200 max-w-2xl mx-auto">
-              Empowering students to achieve their international education dreams.
-            </p>
+      <section className="relative w-full">
+
+        {/* Background Image */}
+        <div className="w-full relative">
+          <img
+            src={saaaImg}
+            alt="About"
+            className="w-full h-auto md:h-[350px] lg:h-[500px] object-contain md:object-cover"
+          />
+
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-950/90 via-blue-950/70 to-transparent pointer-events-none"></div>
+
+          {/* Content */}
+          <div className="absolute inset-0 flex items-center justify-center md:justify-start
+        px-6 sm:px-0 md:px-26 lg:px-60">
+
+            <div className="max-w-xl text-center md:text-left pt-20 md:pt-0 pb-6">
+
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white font-serif">
+                About <span className="uppercase">Us</span>
+              </h1>
+
+              <p className="text-white text-base sm:text-lg md:text-xl leading-relaxed mt-4">
+                Guiding students toward global education with <br /> reliable support, expert advice,
+                and personalized guidance.
+              </p>
+
+            </div>
+
           </div>
         </div>
-      </div>
-
+      </section>
       {/* ================= FEATURES SECTION ================= */}
       <section className="py-20">
-        <h2 className="text-3xl font-bold text-center mb-3">
-          We Handle Everything For You
-        </h2>
-        <p className="text-center text-gray-600 mb-12">
-          Discover what makes us the best choice for your educational journey
-        </p>
+        <div className="px-4 sm:px-6 md:px-0">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-center mb-3">
+            We Handle Everything <br className="sm:hidden" />
+            For <span className="whitespace-nowrap">You</span>
+          </h2>
+          <p className="text-center text-gray-600 mb-12">
+            Discover what makes us the best choice for your educational journey
+          </p>
+        </div>
 
-        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 px-4">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 px-4">
           {[
-            { img: featureImg2, title: "Unversity ApplicationHandling", desc: "Professional consultants with years of experience" },
-            { img: featureImg4, title: "Mock interview Prepartion", desc: "Connections with universities worldwide" },
+            { img: featureImg2, title: "University Application Handling", desc: "Professional consultants with years of experience" },
+            { img: featureImg4, title: "Mock interview Preparation", desc: "Connections with universities worldwide" },
             { img: featureImg1, title: "Financial Guidance", desc: "95% visa approval and admission success" },
             { img: featureImg3, title: "Visa Application submission", desc: "Round-the-clock assistance for all your needs" }
           ].map((item, i) => (
@@ -48,7 +73,7 @@ export default function AboutUs() {
               key={i}
               className="
                 bg-white
-                rounded-2xl p-6 text-center
+                rounded-2xl p-6 text-center w-full
                 shadow-[0_10px_25px_rgba(0,0,0,0.08)]
                 transition-all duration-300
                 hover:-translate-y-2
@@ -60,7 +85,7 @@ export default function AboutUs() {
                 className="h-16 w-16 mx-auto mb-4 rounded-lg object-cover shadow"
                 alt={item.title}
               />
-              <h3 className="font-bold text-lg mb-2">{item.title}</h3>
+              <h3 className="font-bold text-lg mb-2 break-words">{item.title}</h3>
               <p className="text-gray-600 text-sm">{item.desc}</p>
             </div>
           ))}
@@ -71,32 +96,24 @@ export default function AboutUs() {
       <section className="relative w-full mt-[-10px]">
 
         {/* DESKTOP VIEW */}
-        <div className="hidden lg:block relative w-full h-[450px] overflow-hidden">
-          {/* BACKGROUND IMAGE */}
+        <div className="hidden lg:block relative w-full h-[400px] md:h-[450px] overflow-hidden">
           <img
             src={global}
             alt="Vision and Mission"
-            className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-[70%] h-full object-contain"
+            className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-[0%] md:w-[70%] h-full object-contain"
           />
 
-          {/* CONTENT OVERLAY */}
           <div className="relative z-10 max-w-7xl mx-auto px-12 mt-[60px]">
             <div className="max-w-xl space-y-8">
+              {/* Mission & Vision stay same */}
               <div className="relative">
-                <h3 className="text-3xl font-bold text-white mb-2 flex items-center gap-4 ml-[170px]">
-
-                  Mission
-                </h3>
+                <h3 className="text-3xl font-bold text-white mb-2 flex items-center gap-4 ml-[170px]">Mission</h3>
                 <p className="text-lg text-white/90 leading-relaxed font-semibold pl-14 ml-[120px]">
                   Our mission is to provide comprehensive guidance and support.
                 </p>
               </div>
-
               <div className="relative">
-                <h3 className="text-3xl font-bold text-white mb-2 flex items-center gap-4 ml-[170px]">
-
-                  Vision
-                </h3>
+                <h3 className="text-3xl font-bold text-white mb-2 flex items-center gap-4 ml-[170px]">Vision</h3>
                 <p className="text-lg text-white/90 leading-relaxed font-semibold pl-14 ml-[120px]">
                   To be a trusted leader in education <br /> consultancy globally.
                 </p>
@@ -104,28 +121,43 @@ export default function AboutUs() {
             </div>
           </div>
 
-          {/* Stats Bar (Desktop) */}
-          <div className="absolute bottom-10  w-full z-20">
-            <div className="max-w-7xl ">
-              <div className="grid grid-cols-3  max-w-xl mr-[10px] mb-[20px]">
-                <div className="text-center group">
-                  <h3 className="text-3xl font-bold text-blue-700 group-hover:scale-110 transition-transform duration-300 ml-[550px]">365+</h3>
-                  <p className="text-sm font-bold text-gray-600 mt-2 uppercase tracking-widest ml-[540px]">Students Enrolled</p>
-                </div>
-                <div className="text-center group">
-                  <h3 className="text-3xl font-bold text-blue-700 group-hover:scale-110 transition-transform duration-300 ml-[540px]">2+</h3>
-                  <p className="text-sm font-bold text-gray-600 mt-2 uppercase tracking-widest ml-[530px] ">Years Experience</p>
-                </div>
-                <div className="text-center group">
-                  <h3 className="text-3xl font-bold text-blue-700 group-hover:scale-110 transition-transform duration-300 ml-[500px]">78%</h3>
-                  <p className="text-sm font-bold text-gray-600 mt-2 uppercase tracking-widest ml-[500px]">Success Rate</p>
-                </div>
+          {/* Responsive Numbers Section */}
+          <div className="absolute  w-full   ml-[90px]">
+            <div className="max-w-md mx-auto  flex justify-between  gap-8 mt-[60px] md:mt-[35px]">
+
+              <div className="text-center">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-700">
+                  365+
+                </h3>
+                <p className="text-xs sm:text-sm md:text-base font-bold text-gray-600 mt-1 uppercase tracking-widest">
+                  Students Enrolled
+                </p>
               </div>
+
+              <div className="text-center">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-700">
+                  2+
+                </h3>
+                <p className="text-xs sm:text-sm md:text-base font-bold text-gray-600 mt-1 uppercase tracking-widest">
+                  Years Experience
+                </p>
+              </div>
+
+              <div className="text-center">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-700">
+                  78%
+                </h3>
+                <p className="text-xs sm:text-sm md:text-base font-bold text-gray-600 mt-1 uppercase tracking-widest">
+                  Success Rate
+                </p>
+              </div>
+
             </div>
           </div>
         </div>
 
-        {/* MOBILE VIEW */}
+
+        {/* MOBILE & TABLET VIEW */}
         <div className="lg:hidden px-6">
           <div className="bg-blue-800 text-white w-[85%] mx-auto min-h-[300px] p-8 rounded-xl flex flex-col justify-center">
             <div className="flex items-center gap-3 mb-3">
@@ -164,7 +196,7 @@ export default function AboutUs() {
       {/* ================= STUDENT REVIEWS ================= */}
       <section className="py-16 bg-gray-100">
         <div className="text-center px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-3">
+          <h2 className="text-3xl md:text-5xl font-bold mb-3">
             Our Students Review
           </h2>
           <p className="text-gray-600 mb-10 max-w-2xl mx-auto">
@@ -176,12 +208,12 @@ export default function AboutUs() {
           {[
             {
               name: "Sasa",
-              img: tttImg,
+              img: sasa,
               review: "Professional guidance and friendly support throughout the entire application process."
             },
             {
               name: "Angelini",
-              img: saaaImg,
+              img: v,
               review: "They helped me get my admission quickly and smoothly, very supportive team!"
             }
           ].map((student, i) => (
@@ -201,7 +233,7 @@ export default function AboutUs() {
           ))}
         </div>
       </section>
-
+      <Footer />
     </div>
   );
 }

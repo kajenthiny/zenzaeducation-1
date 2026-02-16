@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-import heroImg from "../assets/Australia_Sky-background-mockup.png";
+import heroImg from "../assets/Australia-hero.jpg";
 import uni1 from "../assets/university1.jpg";
 import uni2 from "../assets/university2.jpg";
 import uni3 from "../assets/university3.jpg";
@@ -20,6 +20,9 @@ import uni15 from "../assets/university15.jpg";
 import uni16 from "../assets/university16.jpg";
 import uni17 from "../assets/university17.jpg";
 import uni18 from "../assets/university18.jpg";
+
+import Navbar from "../pages/Navbar";
+import Footer from "../components/Footer";
 
 /* Animation variant */
 const imageVariant = {
@@ -92,6 +95,7 @@ const Australia = () => {
 
   return (
     <div className="w-full bg-white">
+      <Navbar />
       {/* HERO SECTION */}
       <section className="w-full relative overflow-hidden">
         <div className="absolute inset-0">
@@ -106,13 +110,12 @@ const Australia = () => {
         <div className="relative max-w-7xl mx-auto px-4 py-20 flex items-center min-h-[400px]">
           <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-10 w-full">
             <div className="text-white text-center lg:text-left">
-              <h2 className="text-4xl md:text-5xl font-extrabold leading-tight">
-                Study in <span className="uppercase">AUSTRALIA</span>
-              </h2>
-              <p className="mt-4 text-white/80 max-w-md mx-auto lg:mx-0 text-sm md:text-base leading-relaxed">
+              <h2 className="text-4xl md:text-5xl font-extrabold leading-tight font-serif tracking-tight">Study in <span className="uppercase">AUSTRALIA</span></h2>
+
+              <p className="mt-4 text-white/100 max-w-md mx-auto lg:mx-0 text-sm md:text-base leading-relaxed">
                 Unlock your future with free expert guidance to study in Australia – your path to success starts here!
               </p>
-              <button className="mt-8 bg-white/20 hover:bg-white/30 text-white px-6 py-3 rounded-md text-sm font-semibold shadow">
+              <button className="mt-8 bg-white/20 hover:bg-white/30 text-white/100 px-6 py-3 rounded-md text-sm font-semibold shadow">
                 Apply for January 2026
               </button>
             </div>
@@ -174,6 +177,7 @@ const Australia = () => {
           </div>
         ))}
       </section>
+      <Footer />
     </div>
   );
 };
