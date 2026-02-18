@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
-import heroImg from "../assets/Australia-hero.jpg";
+import heroImg from "../assets/australia-hero.jpg";
 import uni1 from "../assets/university1.jpg";
 import uni2 from "../assets/university2.jpg";
 import uni3 from "../assets/university3.jpg";
