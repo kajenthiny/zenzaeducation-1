@@ -2,6 +2,7 @@ import React from "react";
 import { FaFacebookF, FaWhatsapp, FaLinkedinIn, FaPhoneAlt } from "react-icons/fa";
 import { MdEmail, MdLocationOn } from "react-icons/md";
 import { Link } from "react-router-dom";
+import logo1 from "../assets/logo1.png";
 
 const Footer = () => {
   return (
@@ -15,7 +16,7 @@ const Footer = () => {
         {/* Column 1 - Logo & Social */}
         <div className="w-full md:w-1/4 text-center md:text-left">
           <img
-            src="/logo1.png"
+            src={logo1}
             alt="Zenza Logo"
             className="w-50 md:w-62 mx-auto md:mx-0 mt-5"
           />

@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 import heroImg from "../assets/Australia-hero.jpg";
 import uni1 from "../assets/university1.jpg";
@@ -27,15 +28,12 @@ import Footer from "../components/Footer";
 /* Animation variant */
 const imageVariant = {
   hidden: { opacity: 0, y: 40, scale: 0.95 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: 0.6, ease: "easeOut" },
-  },
+  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
 const Australia = () => {
+  const navigate = useNavigate();
+
   const cards = [
     {
       id: 1,
@@ -99,23 +97,24 @@ const Australia = () => {
       {/* HERO SECTION */}
       <section className="w-full relative overflow-hidden">
         <div className="absolute inset-0">
-          <img
-            src={heroImg}
-            alt="Australia"
-            className="w-full h-full object-cover"
-          />
+          <img src={heroImg} alt="Australia" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-blue-950/90 via-blue-950/60 to-transparent"></div>
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 py-20 flex items-center min-h-[400px]">
           <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-10 w-full">
             <div className="text-white text-center lg:text-left">
-              <h2 className="text-4xl md:text-5xl font-extrabold leading-tight font-serif tracking-tight">Study in <span className="uppercase">AUSTRALIA</span></h2>
-
+              <h2 className="text-4xl md:text-5xl font-extrabold leading-tight font-serif tracking-tight">
+                Study in <span className="uppercase">AUSTRALIA</span>
+              </h2>
               <p className="mt-4 text-white/100 max-w-md mx-auto lg:mx-0 text-sm md:text-base leading-relaxed">
                 Unlock your future with free expert guidance to study in Australia – your path to success starts here!
               </p>
-              <button className="mt-8 bg-white/20 hover:bg-white/30 text-white/100 px-6 py-3 rounded-md text-sm font-semibold shadow">
+              {/* ✅ Fixed button */}
+              <button
+                className="mt-8 bg-white/20 hover:bg-white/30 text-white/100 px-6 py-3 rounded-md text-sm font-semibold shadow"
+                onClick={() => navigate("/contact")}
+              >
                 Apply for January 2026
               </button>
             </div>
@@ -127,10 +126,7 @@ const Australia = () => {
       {/* UNIVERSITY SECTIONS */}
       <section className="max-w-7xl mx-auto px-4 py-14 space-y-20">
         {cards.map((item) => (
-          <div
-            key={item.id}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center"
-          >
+          <div key={item.id} className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             {/* IMAGES */}
             <motion.div
               className={item.reverse ? "lg:order-2" : ""}
@@ -161,16 +157,13 @@ const Australia = () => {
             </motion.div>
 
             {/* TEXT */}
-            <div
-              className={`text-center ${item.reverse ? "lg:order-1" : ""} mt-6 lg:mt-0`}
-            >
-              <h3 className="text-xl font-extrabold tracking-wide text-gray-900 mb-3">
-                {item.title}
-              </h3>
-              <p className="text-gray-600 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
-                {item.desc}
-              </p>
-              <button className="mt-6 bg-blue-900 hover:bg-blue-800 text-white px-10 py-3 rounded-md font-semibold shadow">
+            <div className={`text-center ${item.reverse ? "lg:order-1" : ""} mt-6 lg:mt-0`}>
+              <h3 className="text-xl font-extrabold tracking-wide text-gray-900 mb-3">{item.title}</h3>
+              <p className="text-gray-600 text-sm md:text-base max-w-xl mx-auto leading-relaxed">{item.desc}</p>
+              <button
+                className="mt-6 bg-blue-900 hover:bg-blue-800 text-white px-10 py-3 rounded-md font-semibold shadow"
+                onClick={() => navigate("/contact")}
+              >
                 Apply
               </button>
             </div>

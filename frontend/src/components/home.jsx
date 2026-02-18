@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
+
 import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin } from "lucide-react";
+
 
 // Import images from assets
 import heroImage from '../assets/hero3.png';
@@ -14,6 +16,7 @@ import t3 from '../assets/t3.jpg';
 import t4 from '../assets/t4.jpg';
 import { useNavigate } from "react-router-dom";
 
+
 import Navbar from "../pages/Navbar";
 import Footer from "../components/Footer";
 
@@ -23,51 +26,7 @@ const ZenzaEducation = () => {
   const [isVisible, setIsVisible] = useState({});
   const sectionRefs = useRef({});
     const navigate = useNavigate();
-   /* ================= STATS COUNTER STATE ================= */
-const [statsCount, setStatsCount] = useState({
-  universities: 0,
-  countries: 0,
-  students: 0,
-});
- 
-/* ================= STATS COUNTER EFFECT ================= */
-useEffect(() => {
-  if (!isVisible.testimonials) return;
-
-  let start = 0;
-  const duration = 2000;
-  const intervalTime = 20;
-  const totalSteps = duration / intervalTime;
-
-  const universityIncrement = 500 / totalSteps;
-  const countryIncrement = 6 / totalSteps;
-  const studentIncrement = 300 / totalSteps;
-
-  const counter = setInterval(() => {
-    start++;
-
-    setStatsCount((prev) => ({
-      universities:
-        prev.universities < 500
-          ? Math.min(500, Math.ceil(prev.universities + universityIncrement))
-          : 500,
-      countries:
-        prev.countries < 6
-          ? Math.min(6, Math.ceil(prev.countries + countryIncrement))
-          : 6,
-      students:
-        prev.students < 300
-          ? Math.min(300, Math.ceil(prev.students + studentIncrement))
-          : 300,
-    }));
-
-    if (start >= totalSteps) {
-      clearInterval(counter);
-    }
-  }, intervalTime);
-
-  return () => clearInterval(counter);
-}, [isVisible.testimonials]);
+    
 
   /* ================= TESTIMONIAL PAGINATION ================= */
   const testimonials = [
@@ -83,6 +42,38 @@ useEffect(() => {
 
   const startIndex = currentPage * IMAGES_PER_PAGE;
   const currentImages = testimonials.slice(startIndex, startIndex + IMAGES_PER_PAGE);
+const [partners, setPartners] = useState(0);
+const [countries, setCountries] = useState(0);
+const [students, setStudents] = useState(0);
+
+useEffect(() => {
+  let p = 0;
+  let c = 0;
+  let s = 0;
+
+  const interval = setInterval(() => {
+    if (p < 500) {
+      p += 10;
+      setPartners(p);
+    }
+
+    if (c < 6) {
+      c += 1;
+      setCountries(c);
+    }
+
+    if (s < 300) {
+      s += 6;
+      setStudents(s);
+    }
+
+    if (p >= 500 && c >= 6 && s >= 300) {
+      clearInterval(interval);
+    }
+  }, 60);
+
+  return () => clearInterval(interval);
+}, []);
 
   /* ================= SCROLL EFFECTS ================= */
   useEffect(() => {
@@ -128,65 +119,54 @@ useEffect(() => {
 
   return (
     <div className="min-h-screen bg-white overflow-hidden">
-      <Navbar />
-{/* ================= HERO SECTION ================= */}
-<section className="relative w-full min-h-[70vh] sm:min-h-[75vh] md:min-h-screen bg-gradient-to-br from-[#031d91] via-[#0425b5] to-[#052ec9] overflow-hidden flex items-center">
+      
+<Navbar/>
 
-  {/* Simple overlay for depth */}
+{/* ================= HERO SECTION ================= */}
+<section className="relative w-full min-h-[70vh] sm:min-h-[75vh] md:min-h-[85vh] lg:min-h-screen bg-gradient-to-br from-[#031d91] via-[#0425b5] to-[#052ec9] overflow-hidden flex items-center">
+
+  {/* Overlay */}
   <div className="absolute inset-0 bg-black/10"></div>
 
-  {/* Floating animated elements */}
+  {/* Floating Animated Elements */}
   <div className="absolute inset-0 overflow-hidden pointer-events-none">
 
-    {/* Graduation cap icon */}
-    <div className="absolute top-10 sm:top-26 md:top-28 lg:top-30 left-[40%]sm:left-[45%]  lg:left-[58%] animate-float md-hidden">
-  <svg className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16 text-white/20" fill="currentColor" viewBox="0 0 24 24">
-    <path d="M12 3L1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
-  </svg>
-</div>
+    {/* Graduation Cap */}
+    <div className="absolute top-[5%] sm:top-[10%] md:top-[12%] lg:top-[15%] left-[40%] sm:left-[45%] md:left-[50%] lg:left-[55%] animate-float hidden md:block">
+      <svg className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 xl:w-16 text-white/20" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 3L1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
+      </svg>
+    </div>
 
-    {/* Globe icon */}
-    <div className="absolute bottom-10 sm:bottom-14 md:bottom-18 lg:bottom-28 left-[8%] sm:left-[12%] md:left-[14%] lg:left-[16%]  animate-float-delayed">
-      <svg className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 xl:w-20 xl:h-20 text-white/15" fill="currentColor" viewBox="0 0 24 24">
+    {/* Globe Icon */}
+    <div className="absolute bottom-[5%] sm:bottom-[8%] md:bottom-[10%] lg:bottom-[12%] left-[8%] sm:left-[12%] md:left-[14%] lg:left-[16%] animate-float-delayed">
+      <svg className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 lg:w-16 xl:w-20 text-white/15" fill="currentColor" viewBox="0 0 24 24">
         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
       </svg>
     </div>
 
-    {/* Book icon */}
-    {/* <div className="absolute top-8 translate-y-4 sm:translate-y-0 md:translate-y-2 lg:translate-y-0 left-[2%] sm:left-[3%] md:left-[4%] lg:left-[5%] animate-pulse-slow">
-      <svg className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 text-white/20" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/>
-      </svg>
-    </div> */}
   </div>
 
-  {/* Diagonal background shape (FIXED – NO SCROLL MOVE) */}
+  {/* Diagonal Background Shape */}
   <img
     src={rhombus}
     alt="bg-shape"
-    className="hidden md:block absolute right-[-100px] lg:right-[-140px] xl:right-[-160px] bottom-0 h-full object-contain z-0"
+    className="hidden lg:block absolute right-[-10%] xl:right-[-15%] bottom-0 h-full max-w-[60%] xl:max-w-[90%] max-h-[1000px] object-contain z-0 pointer-events-none pr-20"
   />
 
-  {/* Hero image (FIXED – NO SCROLL MOVE) */}
-<img
-  src={heroImage}
-  alt="Hero"
-className="absolute bottom-0 right-0 h-[50%] sm:h-[60%] md:h-[75%] lg:h-[85%] xl:h-[90%] object-contain z-10 mb-6 sm:mb-10 md:mb-16 lg:mb-[120px]"
-/>
-
-
+  {/* Hero Image ONLY FOR DESKTOPS */}
+  <img
+    src={heroImage}
+    alt="Hero"
+    className="hidden lg:block absolute bottom-0 right-0 h-[70%] xl:h-[80%] object-contain max-w-[50%] xl:max-w-[85%] z-10 pointer-events-none"
+  />
 
   {/* CONTENT WRAPPER */}
-<div className="relative z-20 w-full 
-  px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 
-  py-6 sm:py-8 md:py-10 lg:py-12 xl:py-0
-  -translate-y-20 sm:-translate-y-16 md:translate-y-0">
+  <div className="relative z-20 w-full px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 py-6 sm:py-8 md:py-10 lg:py-14 flex flex-col justify-center">
+    <div className="max-w-full sm:max-w-xl md:max-w-2xl lg:max-w-3xl text-white">
 
-
-    <div className="max-w-full sm:max-w-xl md:max-w-2xl text-white">
-
-      {/* BADGE - Trust indicator */}
-      <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-2.5 py-1.5 sm:px-3 sm:py-1.5 md:px-4 md:py-2 mb-3 sm:mb-4 md:mb-5 lg:mb-6">
+      {/* BADGE */}
+      <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-2.5 py-1.5 sm:px-3 sm:py-2 mb-4">
         <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 text-yellow-300 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
           <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
         </svg>
@@ -194,88 +174,77 @@ className="absolute bottom-0 right-0 h-[50%] sm:h-[60%] md:h-[75%] lg:h-[85%] xl
       </div>
 
       {/* FLAGS */}
-      <div className="hidden md:flex flex-wrap gap-2 md:gap-3 lg:gap-4 xl:gap-6 mb-4 md:mb-6 lg:mb-8">
+      <div className="flex flex-wrap gap-2 md:gap-3 lg:gap-4 xl:gap-6 mb-6 justify-start">
         {[d1, d2, d3, d4].map((img, idx) => (
           <img
             key={idx}
             src={img}
-            className="h-[70px] w-[120px] md:h-[80px] md:w-[130px] lg:h-[100px] lg:w-[160px] xl:h-[120px] xl:w-[200px] rounded-lg lg:rounded-xl object-cover shadow-2xl hover:scale-105 transition-all duration-300"
+            className="h-[50px] sm:h-[60px] md:h-[70px] lg:h-[90px] xl:h-[110px] w-auto rounded-lg lg:rounded-xl object-cover shadow-2xl hover:scale-105 transition-all duration-300"
             alt={`Destination ${idx + 1}`}
           />
         ))}
       </div>
 
       {/* TEXT */}
-      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold mb-2 sm:mb-3 md:mb-4 leading-tight">
+      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold mb-3 leading-tight">
         Study Abroad With <br />
         <span className="bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent">
           Confidence
         </span>
       </h1>
 
-      <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-blue-100 mb-3 sm:mb-4 md:mb-5 lg:mb-6 leading-relaxed max-w-lg">
-        Explore Global Destinations , Unlock Academic Success, and Shape Your Future With Us.
+      <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-blue-100 mb-6 leading-relaxed max-w-lg">
+        Explore Global Destinations, Unlock Academic Success, and Shape Your Future With Us.
       </p>
 
-     
-
-      {/* STATS - Achievement metrics */}
-     <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4 lg:gap-6 mb-4 sm:mb-6 md:mb-8 lg:mb-10">
-        <div className="text-center md:text-left bg-white/5 backdrop-blur-sm rounded-md sm:rounded-lg p-1.5 sm:p-2 md:p-3 lg:p-4 border border-white/10 hover:bg-white/10 transition-all duration-300">
-          <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-0.5 sm:gap-1 md:gap-2 mb-0.5 sm:mb-1">
-            <svg className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-yellow-300 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+      {/* STATS */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-8">
+        {/* Universities */}
+        <div className="text-center md:text-left bg-white/5 backdrop-blur-sm rounded-md sm:rounded-lg p-3 border border-white/10 hover:bg-white/10 transition-all duration-300">
+          <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-2 mb-1">
+            <svg className="w-5 h-5 text-yellow-300 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 3L1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
             </svg>
-            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold">50+</p>
+            <p className="text-2xl font-bold">50+</p>
           </div>
-          <p className="text-[9px] sm:text-[10px] md:text-xs lg:text-sm text-blue-200">Universities</p>
+          <p className="text-sm text-blue-200">Universities</p>
         </div>
-        
-        <div className="text-center md:text-left bg-white/5 backdrop-blur-sm rounded-md sm:rounded-lg p-1.5 sm:p-2 md:p-3 lg:p-4 border border-white/10 hover:bg-white/10 transition-all duration-300">
-          <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-0.5 sm:gap-1 md:gap-2 mb-0.5 sm:mb-1">
-            <svg className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-green-300 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+        {/* Success Rate */}
+        <div className="text-center md:text-left bg-white/5 backdrop-blur-sm rounded-md sm:rounded-lg p-3 border border-white/10 hover:bg-white/10 transition-all duration-300">
+          <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-2 mb-1">
+            <svg className="w-5 h-5 text-green-300 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
               <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
             </svg>
-            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold">95%</p>
+            <p className="text-2xl font-bold">95%</p>
           </div>
-          <p className="text-[9px] sm:text-[10px] md:text-xs lg:text-sm text-blue-200">Success Rate</p>
+          <p className="text-sm text-blue-200">Success Rate</p>
         </div>
-        
-        <div className="text-center md:text-left bg-white/5 backdrop-blur-sm rounded-md sm:rounded-lg p-1.5 sm:p-2 md:p-3 lg:p-4 border border-white/10 hover:bg-white/10 transition-all duration-300">
-          <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-0.5 sm:gap-1 md:gap-2 mb-0.5 sm:mb-1">
-            <svg className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-pink-300 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+        {/* Countries */}
+        <div className="text-center md:text-left bg-white/5 backdrop-blur-sm rounded-md sm:rounded-lg p-3 border border-white/10 hover:bg-white/10 transition-all duration-300">
+          <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-2 mb-1">
+            <svg className="w-5 h-5 text-pink-300 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
             </svg>
-            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold">25+</p>
+            <p className="text-2xl font-bold">25+</p>
           </div>
-          <p className="text-[9px] sm:text-[10px] md:text-xs lg:text-sm text-blue-200">Countries</p>
+          <p className="text-sm text-blue-200">Countries</p>
         </div>
       </div>
 
-      {/* CTA Button */}
-       <button
-          onClick={() => navigate("/contact")}
-          className="bg-white text-[#031d91] font-semibold py-2 px-5 sm:py-2.5 sm:px-6 md:py-3 md:px-8 rounded-full shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm md:text-base w-full sm:w-auto justify-center"
-        >
-          Get Started
-          <svg
-            className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M13 7l5 5m0 0l-5 5m5-5H6"
-            />
-          </svg>
-        </button>
+      {/* CTA */}
+      <button
+        onClick={() => navigate("/contact")}
+        className="bg-white text-[#031d91] font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-2 text-base w-full sm:w-auto justify-center"
+      >
+        Get Started
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+        </svg>
+      </button>
 
     </div>
   </div>
-</section> 
+</section>
 
 
 
@@ -371,16 +340,7 @@ className="absolute bottom-0 right-0 h-[50%] sm:h-[60%] md:h-[75%] lg:h-[85%] xl
 
  
  
-    {/* Dotted pattern */}
-    <div className="absolute top-1/2 left-1/4 grid grid-cols-3 gap-4">
-      <div className="w-3 h-3 bg-slate-500 rounded-full animate-pulse"></div>
-      <div className="w-3 h-3 bg-gray-500 rounded-full animate-pulse animation-delay-200"></div>
-      <div className="w-3 h-3 bg-zinc-500 rounded-full animate-pulse animation-delay-400"></div>
-      <div className="w-3 h-3 bg-neutral-500 rounded-full animate-pulse animation-delay-600"></div>
-      <div className="w-3 h-3 bg-slate-500 rounded-full animate-pulse animation-delay-800"></div>
-      <div className="w-3 h-3 bg-gray-500 rounded-full animate-pulse animation-delay-1000"></div>
-    </div>
-
+    
  
 
   <div className="container mx-auto px-4 relative z-10">
@@ -406,7 +366,11 @@ className="absolute bottom-0 right-0 h-[50%] sm:h-[60%] md:h-[75%] lg:h-[85%] xl
         <div
            key={`${currentPage}-${index}`}
     className="relative overflow-hidden rounded-3xl bg-white shadow-xl hover:shadow-2xl transition-all duration-500 group cursor-pointer border-2 border-gray-200 hover:border-slate-400 ..."
-    onClick={() => navigate("/aboutus",window.scrollTo({ top: 0, behavior: 'smooth' }))} >
+    onClick={() => {
+  navigate("/aboutus");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}}
+ >
       
   
           
@@ -435,22 +399,7 @@ className="absolute bottom-0 right-0 h-[50%] sm:h-[60%] md:h-[75%] lg:h-[85%] xl
               />
               
               
-              {/* Gradient overlay on hover */}
-<div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
-                  {/* <div className="absolute inset-0 bg-gradient-to-t from-blue-500/80 via-white/50 to-transparent 
-                opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6"> */}
-
-  {/* <div className="transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
-    
-    <button className="w-[150px] bg-gradient-to-r from-blue-600 to-blue-800 text-white font-semibold py-2.5 rounded-xl 
-      hover:from-blue-700 hover:to-blue-900 transition-all duration-300 flex items-center justify-center gap-2 ">
-      Read Story
-      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-      </svg>
-    </button>
-  </div> */}
-</div>
+              
 
 
             </div>
@@ -480,20 +429,21 @@ className="absolute bottom-0 right-0 h-[50%] sm:h-[60%] md:h-[75%] lg:h-[85%] xl
       ))}
     </div>
     
-    {/* Pagination Dots with animation */}
-    <div className="flex justify-center gap-3 mb-16">
-      {[...Array(totalPages)].map((_, index) => (
-        <button
-          key={index}
-          onClick={() => setCurrentPage(index)}
-          className={`rounded-full transition-all duration-500 hover:scale-110 ${
-            currentPage === index
-              ? "w-12 h-3 bg-gradient-to-r from-slate-600 to-zinc-600 shadow-lg"
-              : "w-3 h-3 bg-gray-300 hover:bg-slate-400"
-          }`}
-        />
-      ))}
-    </div>
+   {/* Pagination Dots */}
+<div className="flex justify-center gap-3 mb-16">
+  {Array.from({ length: totalPages }, (_, index) => (
+    <button
+      key={`dot-${index}`}
+      onClick={() => setCurrentPage(index)}
+      className={`rounded-full transition-all duration-500 hover:scale-110 ${
+        currentPage === index
+          ? "w-12 h-3 bg-gradient-to-r from-slate-600 to-zinc-600 shadow-lg"
+          : "w-3 h-3 bg-gray-300 hover:bg-slate-400"
+      }`}
+    />
+  ))}
+</div>
+
  
 
       {/* ================= STATS SECTION (CLEAN VERSION) ================= */}
@@ -511,7 +461,7 @@ className="absolute bottom-0 right-0 h-[50%] sm:h-[60%] md:h-[75%] lg:h-[85%] xl
     <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-indigo-400/20 rounded-full blur-3xl"></div>
 
     <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center relative z-10">
-      
+
       {/* Stat 1 */}
       <div className="group">
         <div className="flex justify-center mb-5">
@@ -521,11 +471,11 @@ className="absolute bottom-0 right-0 h-[50%] sm:h-[60%] md:h-[75%] lg:h-[85%] xl
             </svg>
           </div>
         </div>
-        <h3 className="text-5xl font-extrabold text-white mb-1 tracking-tight">
-         {statsCount.universities}
-<span className="text-cyan-300">+</span>
+       <h3 className="text-5xl font-extrabold text-white mb-1 tracking-tight">
+  {partners}
+  <span className="text-cyan-300">+</span>
+</h3>
 
-        </h3>
         <p className="text-white/80 tracking-wide uppercase text-sm">
           University Partners
         </p>
@@ -541,10 +491,10 @@ className="absolute bottom-0 right-0 h-[50%] sm:h-[60%] md:h-[75%] lg:h-[85%] xl
             </svg>
           </div>
         </div>
-        <h3 className="text-5xl font-extrabold text-white mb-1 tracking-tight">
-        {statsCount.countries}
+       <h3 className="text-5xl font-extrabold text-white mb-1 tracking-tight">
+  {countries}
+</h3>
 
-        </h3>
         <p className="text-white/80 tracking-wide uppercase text-sm">
           Countries
         </p>
@@ -561,11 +511,11 @@ className="absolute bottom-0 right-0 h-[50%] sm:h-[60%] md:h-[75%] lg:h-[85%] xl
             </svg>
           </div>
         </div>
-        <h3 className="text-5xl font-extrabold text-white mb-1 tracking-tight">
-          {statsCount.students}
-<span className="text-purple-300">+</span>
+       <h3 className="text-5xl font-extrabold text-white mb-1 tracking-tight">
+  {students}
+  <span className="text-purple-300">+</span>
+</h3>
 
-        </h3>
         <p className="text-white/80 tracking-wide uppercase text-sm">
           Students Placed
         </p>

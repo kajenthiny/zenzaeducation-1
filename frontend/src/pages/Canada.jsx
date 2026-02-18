@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../pages/Navbar";
 import Footer from "../components/Footer";
 import heroImg from "../assets/canada1.jpg";
@@ -32,15 +33,12 @@ import u6c from "../assets/uni2c.jpg";
 /* animation — same as AU/UK */
 const imageVariant = {
   hidden: { opacity: 0, y: 40, scale: 0.95 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: 0.6, ease: "easeOut" },
-  },
+  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
 const Canada = () => {
+  const navigate = useNavigate(); // ✅ useNavigate
+
   const cards = [
     {
       id: 1,
@@ -105,11 +103,7 @@ const Canada = () => {
         {/* HERO */}
         <section className="w-full relative overflow-hidden">
           <div className="absolute inset-0">
-            <img
-              src={heroImg}
-              alt="Canada"
-              className="w-full h-full object-cover"
-            />
+            <img src={heroImg} alt="Canada" className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-r from-red-900/90 via-red-900/60 to-transparent"></div>
           </div>
 
@@ -124,8 +118,12 @@ const Canada = () => {
                 safe cities, and excellent career opportunities for graduates.
               </p>
 
-              <button className="mt-8 bg-white/20 hover:bg-white/30 px-6 py-3 rounded-md font-semibold shadow">
-                Apply for January Intake
+              {/* ✅ Button navigation */}
+              <button
+                className="mt-8 bg-white/20 hover:bg-white/30 px-6 py-3 rounded-md font-semibold shadow"
+                onClick={() => navigate("/contact")}
+              >
+                Apply for January 2026
               </button>
             </div>
           </div>
@@ -166,19 +164,17 @@ const Canada = () => {
               </motion.div>
 
               {/* TEXT */}
-              <div
-                className={`text-center ${item.reverse ? "lg:order-1" : ""
-                  } mt-6 lg:mt-0`}
-              >
-                <h3 className="text-xl font-extrabold tracking-wide text-gray-900 mb-3">
-                  {item.title}
-                </h3>
+              <div className={`text-center ${item.reverse ? "lg:order-1" : ""} mt-6 lg:mt-0`}>
+                <h3 className="text-xl font-extrabold tracking-wide text-gray-900 mb-3">{item.title}</h3>
 
                 <p className="text-gray-600 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
                   {item.desc}
                 </p>
 
-                <button className="mt-6 bg-indigo-900 hover:bg-indigo-800 text-white px-10 py-3 rounded-md font-semibold shadow">
+                <button
+                  className="mt-6 bg-indigo-900 hover:bg-indigo-800 text-white px-10 py-3 rounded-md font-semibold shadow"
+                  onClick={() => navigate("/contact")}
+                >
                   Apply
                 </button>
               </div>

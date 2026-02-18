@@ -1,8 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+
 import Navbar from "../pages/Navbar";
 import Footer from "../components/Footer";
 import heroImg from "../assets/2827r.jpg";
+
+/* CANADA IMAGES */
 import uni1 from "../assets/university1.jpg";
 import uni2 from "../assets/university2.jpg";
 import uni3 from "../assets/university3.jpg";
@@ -22,7 +26,7 @@ import uni16 from "../assets/university16.jpg";
 import uni17 from "../assets/university17.jpg";
 import uni18 from "../assets/university18.jpg";
 
-/* ONLY animation */
+/* Animation variant */
 const imageVariant = {
   hidden: { opacity: 0, y: 40, scale: 0.95 },
   visible: {
@@ -34,6 +38,8 @@ const imageVariant = {
 };
 
 const France = () => {
+  const navigate = useNavigate();
+
   const cards = [
     {
       id: 1,
@@ -98,8 +104,7 @@ const France = () => {
         {/* HERO SECTION */}
         <section className="w-full relative overflow-hidden">
           <div className="absolute inset-0">
-            <
-              img
+            <img
               src={heroImg}
               alt="France Flag"
               className="w-full h-full object-cover"
@@ -107,27 +112,27 @@ const France = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-blue-950/90 via-blue-950/60 to-transparent"></div>
           </div>
 
-          {/* 🔥 ONLY CHANGE HERE */}
           <div className="relative max-w-7xl mx-auto px-5 py-24 flex items-center min-h-[450px]">
             <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-10 w-full">
-
               <div className="text-white text-center lg:text-left">
                 <h2 className="text-4xl md:text-5xl font-extrabold leading-tight">
                   Study in <span className="uppercase">FRANCE</span>
                 </h2>
 
                 <p className="mt-4 text-white/80 max-w-md mx-auto lg:mx-0 text-sm md:text-base leading-relaxed">
-                  Unlock your future with free expert guidance to study in the France
+                  Unlock your future with free expert guidance to study in France
                   – your path to success starts here!
                 </p>
 
-                <button className="mt-8 bg-white/20 hover:bg-white/30 text-white px-6 py-3 rounded-md text-sm font-semibold shadow">
+                <button
+                  className="mt-8 bg-white/20 hover:bg-white/30 text-white px-6 py-3 rounded-md text-sm font-semibold shadow"
+                  onClick={() => navigate("/contact")}
+                >
                   Apply for January 2026
                 </button>
               </div>
 
               <div className="hidden lg:block"></div>
-
             </div>
           </div>
         </section>
@@ -170,7 +175,9 @@ const France = () => {
               </motion.div>
 
               {/* TEXT */}
-              <div className={`text-center ${item.reverse ? "lg:order-1" : ""}`}>
+              <div
+                className={`text-center ${item.reverse ? "lg:order-1" : ""} mt-6 lg:mt-0`}
+              >
                 <h3 className="text-xl font-extrabold tracking-wide text-gray-900">
                   {item.title}
                 </h3>
@@ -179,7 +186,10 @@ const France = () => {
                   {item.desc}
                 </p>
 
-                <button className="mt-6 bg-blue-900 hover:bg-blue-800 text-white px-10 py-3 rounded-md font-semibold shadow">
+                <button
+                  className="mt-6 bg-blue-900 hover:bg-blue-800 text-white px-10 py-3 rounded-md font-semibold shadow"
+                  onClick={() => navigate("/contact")}
+                >
                   Apply
                 </button>
               </div>

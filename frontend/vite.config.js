@@ -7,9 +7,10 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   plugins: [
     react({
-      babel: {
-        plugins: [['babel-plugin-react-compiler']],
-      },
+      // Temporarily disabled React Compiler for Vercel deployment
+      // babel: {
+      //   plugins: [['babel-plugin-react-compiler']],
+      // },
     }),
     tailwindcss(),
   ],

@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 import heroImg from "../assets/london.jpg";
 
@@ -15,6 +16,7 @@ import u2c from "../assets/uk2c.jpg";
 import u3a from "../assets/uk3a.jpg";
 import u3b from "../assets/uk3b.jpg";
 import u3c from "../assets/uk3c.jpg";
+
 import Navbar from "./Navbar";
 import Footer from "../components/Footer";
 
@@ -30,6 +32,8 @@ const imageVariant = {
 };
 
 const UK = () => {
+  const navigate = useNavigate();
+
   const cards = [
     {
       id: 1,
@@ -61,40 +65,41 @@ const UK = () => {
   ];
 
   return (
-  
     <div className="w-full bg-white font-poppins">
-        <Navbar/>
-  {/* HERO SECTION */}
+      <Navbar />
+
+      {/* HERO SECTION */}
       <section className="w-full relative overflow-hidden">
         <div className="absolute inset-0">
-        <img
-  src={heroImg}
-  alt="UK Flag"
-  className="w-full h-full object-cover object-[20%_center]"
-/>
-
+          <img
+            src={heroImg}
+            alt="UK Flag"
+            className="w-full h-full object-cover object-[20%_center]"
+          />
           <div className="absolute inset-0 bg-gradient-to-r from-blue-950/90 via-blue-950/60 to-transparent"></div>
         </div>
 
-        {/* 🔥 ONLY CHANGE HERE */}
         <div className="relative max-w-7xl mx-auto px-5 py-24 flex items-center min-h-[450px]">
           <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-10 w-full">
-
             <div className="text-white lg:text-left">
-
-              <h2 className="text-4xl md:text-5xl font-extrabold leading-tight font-serif tracking-tight">Study in <span className="uppercase">UK</span></h2>  
+              <h2 className="text-4xl md:text-5xl font-extrabold leading-tight font-serif tracking-tight">
+                Study in <span className="uppercase">UK</span>
+              </h2>
               <p className="mt-4 text-white/80 max-w-md text-sm md:text-base leading-relaxed">
-                Unlock your future with free expert guidance <br></br>to study in the UK
-                – your path to success starts here!
+                Unlock your future with free expert guidance <br />
+                to study in the UK – your path to success starts here!
               </p>
 
-              <button className="mt-8 bg-white/20 hover:bg-white/30 text-white px-6 py-3 rounded-md text-sm font-semibold shadow">
+              {/* ✅ Button navigates to Contact page */}
+              <button
+                className="mt-8 bg-white/20 hover:bg-white/30 text-white px-6 py-3 rounded-md text-sm font-semibold shadow"
+                onClick={() => navigate("/contact")}
+              >
                 Apply for January 2026
               </button>
             </div>
 
             <div className="hidden lg:block"></div>
-
           </div>
         </div>
       </section>
@@ -120,7 +125,6 @@ const UK = () => {
                   alt={item.title}
                   className="w-full h-56 object-cover rounded-lg transition duration-500 hover:scale-105"
                 />
-
                 <div className="grid grid-cols-2 gap-3 mt-4">
                   <img
                     src={item.small1}
@@ -138,19 +142,20 @@ const UK = () => {
 
             {/* TEXT */}
             <div
-              className={`text-center ${
-                item.reverse ? "lg:order-1" : ""
-              } mt-6 lg:mt-0`}
+              className={`text-center ${item.reverse ? "lg:order-1" : ""} mt-6 lg:mt-0`}
             >
               <h3 className="text-xl font-extrabold tracking-wide text-gray-900 mb-3">
                 {item.title}
               </h3>
-
               <p className="text-gray-600 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
                 {item.desc}
               </p>
 
-              <button className="mt-6 bg-indigo-900 hover:bg-indigo-800 text-white px-10 py-3 rounded-md font-semibold shadow">
+              {/* ✅ Apply button navigates to Contact page */}
+              <button
+                className="mt-6 bg-indigo-900 hover:bg-indigo-800 text-white px-10 py-3 rounded-md font-semibold shadow"
+                onClick={() => navigate("/Contact")}
+              >
                 Apply
               </button>
             </div>

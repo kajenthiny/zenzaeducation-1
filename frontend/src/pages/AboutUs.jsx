@@ -41,7 +41,7 @@ export default function AboutUs() {
               </h1>
 
               <p className="text-white text-base sm:text-lg md:text-xl leading-relaxed mt-4">
-                Guiding students toward global education with <br /> reliable support, expert advice,
+                Guiding students toward global education with reliable support, expert advice,
                 and personalized guidance.
               </p>
 
@@ -122,38 +122,39 @@ export default function AboutUs() {
           </div>
 
           {/* Responsive Numbers Section */}
-          <div className="absolute  w-full   ml-[90px]">
-            <div className="max-w-md mx-auto  flex justify-between  gap-8 mt-[60px] md:mt-[35px]">
+          <div className="absolute w-full mt-[10px] sm:mt-[20px] md:mt-[40px] lg:mt-[35px] ml-[120px] ">
+  <div className="max-w-md mx-auto flex justify-between gap-12">
 
-              <div className="text-center">
-                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-700">
-                  365+
-                </h3>
-                <p className="text-xs sm:text-sm md:text-base font-bold text-gray-600 mt-1 uppercase tracking-widest">
-                  Students Enrolled
-                </p>
-              </div>
+    <div className="text-center">
+      <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-700">
+        365+
+      </h3>
+      <p className="text-xs sm:text-sm md:text-base font-bold text-gray-600 mt-1 uppercase tracking-widest">
+        Students Enrolled
+      </p>
+    </div>
 
-              <div className="text-center">
-                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-700">
-                  2+
-                </h3>
-                <p className="text-xs sm:text-sm md:text-base font-bold text-gray-600 mt-1 uppercase tracking-widest">
-                  Years Experience
-                </p>
-              </div>
+    <div className="text-center">
+      <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-700">
+        2+
+      </h3>
+      <p className="text-xs sm:text-sm md:text-base font-bold text-gray-600 mt-1 uppercase tracking-widest">
+        Years Experience
+      </p>
+    </div>
 
-              <div className="text-center">
-                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-700">
-                  78%
-                </h3>
-                <p className="text-xs sm:text-sm md:text-base font-bold text-gray-600 mt-1 uppercase tracking-widest">
-                  Success Rate
-                </p>
-              </div>
+    <div className="text-center">
+      <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-700">
+        78%
+      </h3>
+      <p className="text-xs sm:text-sm md:text-base font-bold text-gray-600 mt-1 uppercase tracking-widest">
+        Success Rate
+      </p>
+    </div>
 
-            </div>
-          </div>
+  </div>
+</div>
+
         </div>
 
 
