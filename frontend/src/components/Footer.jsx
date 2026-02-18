@@ -3,10 +3,12 @@ import { FaFacebookF, FaWhatsapp, FaLinkedinIn, FaPhoneAlt } from "react-icons/f
 import { MdEmail, MdLocationOn } from "react-icons/md";
 import { Link } from "react-router-dom";
 import logo1 from "../assets/logo1.png";
+import ScrollToTop from "./ScrollToTop.jsx";
 
 const Footer = () => {
   return (
     <footer className="w-full bg-gradient-to-br from-gray-50 via-blue-50 to-gray-100 relative overflow-hidden py-0 md:py-0">
+      <ScrollToTop />
       {/* Decorative Circles */}
       <div className="absolute top-0 right-0 w-64 h-64 md:w-72 md:h-72 bg-blue-100 rounded-full blur-3xl opacity-30 -translate-y-1/2"></div>
       <div className="absolute bottom-0 left-0 w-64 h-64 md:w-72 md:h-72 bg-green-100 rounded-full blur-3xl opacity-30 translate-y-1/2"></div>
