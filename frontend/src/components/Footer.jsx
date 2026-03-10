@@ -29,7 +29,7 @@ const Footer = () => {
           {/* Social Icons */}
           <div className="flex justify-center md:justify-start gap-4 mt-5 pl-7">
             <a
-              href="https://www.facebook.com/yourpage"
+              href="https://www.facebook.com/share/187nRRqs2E"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 text-white hover:bg-blue-700 hover:scale-125 hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-300 transition-all duration-300"
@@ -37,7 +37,7 @@ const Footer = () => {
               <FaFacebookF className="hover:animate-pulse" />
             </a>
             <a
-              href="https://wa.me/947XXXXXXXX"
+              href="https://wa.me/94757960217"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 flex items-center justify-center rounded-full bg-green-500 text-white hover:bg-green-600 hover:scale-125 hover:-translate-y-1 hover:shadow-lg hover:shadow-green-300 transition-all duration-300"

@@ -8,7 +8,7 @@ const Contact = () => {
   const contactDetails = [
     { name: "Phone", icon: <FaPhoneAlt />, value: "0757960217" },
     { name: "Email", icon: <FaEnvelope />, value: "ZenZaindustries@gmail.com" },
-    { name: "Facebook", icon: <FaFacebook />, value: "facebook.com/abc" },
+    { name: "Facebook", icon: <FaFacebook />, value: "https://www.facebook.com/share/187nRRqs2E" },
     { name: "Location", icon: <FaMapMarkerAlt />, value: "98/2 Saddanthar Road Nallur Jaffna" },
   ];
   
